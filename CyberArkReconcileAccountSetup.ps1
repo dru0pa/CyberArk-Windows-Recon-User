@@ -64,9 +64,6 @@ if (!(Get-LocalGroupMember -Group "Remote Desktop Users" -Member $username)) {
     echo "User '$username' is already a member of the Remote Desktop Users group."
 }
 
-# Disable User Account Control
-#Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "EnableLUA" -Value 0 -Type DWord
-
 # Check if File and Printer Sharing is already enabled
 $firewallRule = Get-NetFirewallRule -DisplayName "File and Printer Sharing (SMB-In)"
 
