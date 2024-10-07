@@ -9,7 +9,7 @@
     This script does not accept any parameters.
 
 .NOTES
-    Author: Bard
+    Author: Andrew Price
     Created: 2024-10-07
     Last Updated: 2024-10-07
 
