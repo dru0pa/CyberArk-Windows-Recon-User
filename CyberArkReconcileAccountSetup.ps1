@@ -1,4 +1,28 @@
-# This PowerShell script creates a local user account for CyberArk reconciliation purposes.
+<#
+.SYNOPSIS
+    This PowerShell script creates and configures a local user account for CyberArk reconciliation on Windows servers.
+
+.DESCRIPTION
+    This script automates the process of setting up a dedicated local user account for CyberArk reconciliation tasks. It handles user creation, password management, group memberships, User Account Control (UAC) settings, file and printer sharing, and the "Log on as a service" right. The script includes checks to prevent errors and ensure idempotency, making it suitable for both initial setup and ongoing maintenance.
+
+.PARAMETER None
+    This script does not accept any parameters.
+
+.NOTES
+    Author: Bard
+    Created: 2024-10-07
+    Last Updated: 2024-10-07
+
+    Security Considerations:
+    * Password Handling: In production environments, avoid hardcoding passwords. Use secure methods like prompting for the password or retrieving it from a secure vault.
+    * Least Privilege: Evaluate if the reconcile account needs full administrative rights or if more granular permissions can be applied.
+    * UAC: Disabling UAC lowers system security. Carefully consider the implications before disabling it. Explore alternative solutions if possible.
+    * File and Printer Sharing: Enabling file and printer sharing can increase the attack surface. Ensure appropriate security measures are in place.
+
+.EXAMPLE
+    To run the script, save it as a .ps1 file (e.g., CyberArkReconcileAccountSetup.ps1) and execute it from an elevated PowerShell prompt:
+    .\CyberArkReconcileAccountSetup.ps1
+#>
 
 # Get the hostname of the machine.
 $hostname = hostname
